@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Utils {
+	
 	private final Random RANDOM = new SecureRandom();
 	private final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXXYZabcdefghijklmnopqrstuvwxyz";
 	

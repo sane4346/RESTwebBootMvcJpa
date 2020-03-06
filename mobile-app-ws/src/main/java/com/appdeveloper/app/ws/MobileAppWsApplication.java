@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.appdeveloper.app.ws.security.AppProperties;
+
 //import com.appdeveloper.app.ws.ui.controller.UserController;
 
 @SpringBootApplication
@@ -26,6 +28,12 @@ public class MobileAppWsApplication {
 	SpringApplicationContext springApplicationContext()
 	{
 		return new SpringApplicationContext();
+	}
+	
+	@Bean(name = "AppProperties")
+	AppProperties getAppProperties()
+	{
+		return new AppProperties();
 	}
 	
 }

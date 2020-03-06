@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService {
 		
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(user, userEntity);
+		
 		userEntity.setEncryptedPassword(bCrptPasswordEncoder.encode(user.getPassword()));
 		
 		String publicUserId = utils.generateUserId(30);
@@ -67,6 +68,18 @@ public class UserServiceImpl implements UserService {
 		
 		if (userEntity == null) throw new UsernameNotFoundException(email);
 		return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(), new ArrayList<>());
+	}
+
+	@Override
+	public UserDto getUserByUserId(String userId) {
+		UserEntity entity = userRepository.findByUserId(userId);
+		
+		if(entity == null) throw new UsernameNotFoundException(userId);
+		
+		UserDto returnValue = new UserDto();
+		BeanUtils.copyProperties(entity, returnValue);
+		
+		return returnValue;
 	}
 
 }
