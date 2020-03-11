@@ -1,0 +1,7 @@
+package com.appdeveloper.app.ws.ui.model.response;
+
+public enum RequestOperationStatus {
+	ERROR,
+	SUCESS
+
+}
